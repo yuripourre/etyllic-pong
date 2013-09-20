@@ -8,6 +8,7 @@ import br.com.etyllica.core.event.KeyboardEvent;
 import br.com.etyllica.core.event.PointerEvent;
 import br.com.etyllica.core.event.Tecla;
 import br.com.etyllica.core.video.Graphic;
+import br.com.etyllica.layer.Layer;
 
 public class PongApplication extends Application{
 
@@ -31,7 +32,7 @@ public class PongApplication extends Application{
 	@Override
 	public void load() {
 		paddle1 = new Paddle(20,20);
-		paddle2 = new Paddle(w-20,20);
+		paddle2 = new Paddle(w-20-15,20);
 		ball = new Ball(w/2-30/2, h/2-30/2);
 
 		updateAtFixedRate(60);
@@ -95,7 +96,6 @@ public class PongApplication extends Application{
 			paddleDOWN = false;
 		}
 
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -104,14 +104,15 @@ public class PongApplication extends Application{
 
 		paddle1.setY(event.getY());
 
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void timeUpdate(){
 
 		if((ball.getX()<0)||(ball.getX()>w)){
-			ball.hitHorizontal();
+			//TODO PLACAR
+			ball.setCoordinates(w/2-30/2, h/2-30/2);
+			ball.setMoveAngle(30);
 		}
 
 		if((ball.getY()<0)||(ball.getY()>h)){
@@ -127,13 +128,33 @@ public class PongApplication extends Application{
 		}
 
 		if(paddle1.colideRect(ball.getX(), ball.getY(), ball.getW(), ball.getH())){
-			ball.hitHorizontal();
+			ball.hitHorizontal(paddle1);
+			ball.color = Color.GREEN;			
 		}
 
 		if(paddle2.colideRect(ball.getX(), ball.getY(), ball.getW(), ball.getH())){
-			ball.hitHorizontal();
+			ball.hitHorizontal(paddle2);
+			ball.color = Color.RED;
 		}
 
 	}
+
+	/*private boolean colideCircleRect(Layer rect, Layer circle){
+
+		double circleDistanceX = Math.abs(circle.getX() - rect.getX());
+		double circleDistanceY = Math.abs(circle.getY() - rect.getY());
+
+		if (circleDistanceX > (rect.getW()/2 + circle.getW()/2)) { return false; }
+		if (circleDistanceY > (rect.getH()/2 + circle.getW()/2)) { return false; }
+
+		if (circleDistanceX <= (rect.getW()/2)) { return true; } 
+		if (circleDistanceY <= (rect.getH()/2)) { return true; }
+
+		double cornerDistance_sq = (circleDistanceX - rect.getW()/2)*(circleDistanceX - rect.getW()/2) +
+				(circleDistanceY - rect.getH()/2)*(circleDistanceY - rect.getH()/2);
+
+		return (cornerDistance_sq <= (circle.getW()));
+	}*/
+
 
 }
