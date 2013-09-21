@@ -1,4 +1,4 @@
-package eslam;
+package br.com.pong;
 
 import java.awt.Color;
 
@@ -7,18 +7,19 @@ import br.com.etyllica.layer.Layer;
 
 public class Ball extends Layer{
 	
-	private double speed = 5;
+	private double speed = 2.5;
 	private double incX = 1;
 	private double incY = 0;
 	private double moveAngle = 20;
+	private int hittedBy = 0;
 	
 	public Color color = Color.BLACK;
 	
 	public Ball(int x, int y){
-		super(x,y,30,30);
+		super(x,y,20,20);
 				
 		incX = speed*Math.sin(Math.PI * moveAngle / 180);
-		incY = speed*Math.cos(Math.PI * moveAngle / 180);
+		incY = -speed*Math.cos(Math.PI * moveAngle / 180);
 	}
 	
 	@Override
@@ -26,7 +27,7 @@ public class Ball extends Layer{
 		
 		g.setColor(color);
 		
-		g.fillOval(x, y, w, h);
+		g.fillRect(x, y, w, h);
 		
 	}
 	
@@ -35,10 +36,8 @@ public class Ball extends Layer{
 		this.y+=speed*incY;
 	}
 
-	public void hitHorizontal(Layer paddle) {
-		
-		//incX = -incX;
-		
+	public void hitHorizontal(Paddle paddle) {
+				
 		double P1_x = paddle.getX()+paddle.getW()/2;
 		double P1_y = paddle.getY()+paddle.getH()/2;
 		
@@ -53,7 +52,7 @@ public class Ball extends Layer{
 		setMoveAngle(angle);
 		
 	}
-
+	
 	public void hitVertical() {
 		incY = -incY;
 	}
@@ -63,10 +62,43 @@ public class Ball extends Layer{
 	}
 
 	public void setMoveAngle(double moveAngle) {
+		
 		this.moveAngle = moveAngle;
+		
 		incX = speed*Math.sin(moveAngle);
 		incY = speed*Math.cos(moveAngle);
+		
+		if(incX<1){
+			incX = 1;
+		}else if(incX<-1){
+			incX = -1;
+		}
+		
 	}
-	
+
+	public int getHittedBy() {
+		return hittedBy;
+	}
+
+	public void setHittedBy(int hittedBy) {
+		this.hittedBy = hittedBy;
+	}
+
+	public double getIncX() {
+		return incX;
+	}
+
+	public void setIncX(double incX) {
+		this.incX = incX;
+	}
+
+	public double getIncY() {
+		return incY;
+	}
+
+	public void setIncY(double incY) {
+		this.incY = incY;
+	}
+			
 }
 
