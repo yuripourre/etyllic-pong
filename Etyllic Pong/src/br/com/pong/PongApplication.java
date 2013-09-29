@@ -5,9 +5,8 @@ import java.util.Random;
 
 import br.com.etyllica.core.application.Application;
 import br.com.etyllica.core.event.GUIEvent;
-import br.com.etyllica.core.event.KeyboardEvent;
+import br.com.etyllica.core.event.KeyEvent;
 import br.com.etyllica.core.event.PointerEvent;
-import br.com.etyllica.core.event.Tecla;
 import br.com.etyllica.core.video.Graphic;
 
 public class PongApplication extends Application{
@@ -70,20 +69,20 @@ public class PongApplication extends Application{
 	private boolean paddleDOWN = false;
 
 	@Override
-	public GUIEvent updateKeyboard(KeyboardEvent event) {
+	public GUIEvent updateKeyboard(KeyEvent event) {
 
-		if(event.getPressed(Tecla.TSK_UP_ARROW)){
+		if(event.onKeyDown(KeyEvent.TSK_UP_ARROW)){
 			paddleUP = true;
 			paddleDOWN = false;
-		}else if(event.getReleased(Tecla.TSK_UP_ARROW)){
+		}else if(event.onKeyUp(KeyEvent.TSK_UP_ARROW)){
 			paddleUP = false;
 		}
 
-		if(event.getPressed(Tecla.TSK_DOWN_ARROW)){
+		if(event.onKeyDown(KeyEvent.TSK_DOWN_ARROW)){
 			paddleDOWN = true;
 			paddleUP = false;
 		}
-		else if(event.getReleased(Tecla.TSK_DOWN_ARROW)){
+		else if(event.onKeyUp(KeyEvent.TSK_DOWN_ARROW)){
 			paddleDOWN = false;
 		}
 
