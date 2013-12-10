@@ -71,18 +71,18 @@ public class PongApplication extends Application{
 	@Override
 	public GUIEvent updateKeyboard(KeyEvent event) {
 
-		if(event.onKeyDown(KeyEvent.TSK_UP_ARROW)){
+		if(event.isKeyDown(KeyEvent.TSK_UP_ARROW)){
 			paddleUP = true;
 			paddleDOWN = false;
-		}else if(event.onKeyUp(KeyEvent.TSK_UP_ARROW)){
+		}else if(event.isKeyUp(KeyEvent.TSK_UP_ARROW)){
 			paddleUP = false;
 		}
 
-		if(event.onKeyDown(KeyEvent.TSK_DOWN_ARROW)){
+		if(event.isKeyDown(KeyEvent.TSK_DOWN_ARROW)){
 			paddleDOWN = true;
 			paddleUP = false;
 		}
-		else if(event.onKeyUp(KeyEvent.TSK_DOWN_ARROW)){
+		else if(event.isKeyUp(KeyEvent.TSK_DOWN_ARROW)){
 			paddleDOWN = false;
 		}
 
