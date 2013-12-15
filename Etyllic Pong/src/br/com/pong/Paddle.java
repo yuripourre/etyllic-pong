@@ -11,7 +11,7 @@ public class Paddle extends Layer{
 	
 	private int score = 0;
 
-	public Paddle(int id, int x, int y){
+	public Paddle(int id, float x, float y){
 		super(x,y,15,80);
 		
 		this.id = id;

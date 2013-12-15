@@ -23,8 +23,7 @@ public class PongApplication extends Application{
 
 	@Override
 	public void load() {
-		
-		
+				
 		paddle1 = new Paddle(1, 20,20);
 		paddle2 = new Paddle(2, w-20-15,20);
 		
@@ -59,8 +58,8 @@ public class PongApplication extends Application{
 				
 		//Drawing Score
 		g.setFont(g.getFont().deriveFont(22f));
-		g.drawString(Integer.toString(paddle1.getScore()), w/2-80, 50);
-		g.drawString(Integer.toString(paddle2.getScore()), w/2+80, 50);
+		g.write(w/2-80, 50, Integer.toString(paddle1.getScore()));
+		g.write(w/2+80, 50, Integer.toString(paddle2.getScore()));
 
 	}
 

@@ -15,7 +15,7 @@ public class Ball extends Layer{
 	
 	public Color color = Color.BLACK;
 	
-	public Ball(int x, int y){
+	public Ball(float x, float y){
 		super(x,y,20,20);
 				
 		incX = speed*Math.sin(Math.PI * moveAngle / 180);
