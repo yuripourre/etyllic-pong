@@ -8,6 +8,8 @@ import br.com.etyllica.core.event.GUIEvent;
 import br.com.etyllica.core.event.KeyEvent;
 import br.com.etyllica.core.event.PointerEvent;
 import br.com.etyllica.core.video.Graphic;
+import br.com.pong.model.Ball;
+import br.com.pong.model.Paddle;
 
 public class PongApplication extends Application{
 
@@ -17,7 +19,7 @@ public class PongApplication extends Application{
 	
 	private Ball ball;
 
-	public PongApplication(int w, int h) {
+	public PongApplication(float w, float h) {
 		super(w, h);
 	}
 

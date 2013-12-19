@@ -1,5 +1,6 @@
 import br.com.etyllica.Etyllica;
 import br.com.pong.PongApplication;
+import br.com.pong.menu.MainMenu;
 
 
 public class Pong extends Etyllica{
@@ -12,7 +13,7 @@ public class Pong extends Etyllica{
 
 	@Override
 	public void startGame() {
-		setMainApplication(new PongApplication(w, h));
+		setMainApplication(new MainMenu(w, h));
 	}
 	
 }

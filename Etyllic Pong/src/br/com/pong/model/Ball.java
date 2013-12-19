@@ -1,4 +1,4 @@
-package br.com.pong;
+package br.com.pong.model;
 
 import java.awt.Color;
 
