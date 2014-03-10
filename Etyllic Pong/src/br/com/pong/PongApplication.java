@@ -3,7 +3,7 @@ package br.com.pong;
 import java.awt.Color;
 import java.util.Random;
 
-import br.com.etyllica.core.application.Application;
+import br.com.etyllica.context.Application;
 import br.com.etyllica.core.event.GUIEvent;
 import br.com.etyllica.core.event.KeyEvent;
 import br.com.etyllica.core.event.PointerEvent;
@@ -11,7 +11,7 @@ import br.com.etyllica.core.video.Graphic;
 import br.com.pong.model.Ball;
 import br.com.pong.model.Paddle;
 
-public class PongApplication extends Application{
+public class PongApplication extends Application {
 
 	private Paddle paddle1;
 	
@@ -19,7 +19,7 @@ public class PongApplication extends Application{
 	
 	private Ball ball;
 
-	public PongApplication(float w, float h) {
+	public PongApplication(int w, int h) {
 		super(w, h);
 	}
 
@@ -99,7 +99,7 @@ public class PongApplication extends Application{
 	}
 
 	@Override
-	public void timeUpdate(){
+	public void timeUpdate(long now){
 
 		if(ball.getX()<0){
 			

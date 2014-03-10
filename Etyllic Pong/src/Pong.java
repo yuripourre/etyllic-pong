@@ -1,9 +1,9 @@
 import br.com.etyllica.Etyllica;
-import br.com.pong.PongApplication;
+import br.com.etyllica.context.Application;
 import br.com.pong.menu.MainMenu;
 
 
-public class Pong extends Etyllica{
+public class Pong extends Etyllica {
 	
 	private static final long serialVersionUID = 8792778651569371426L;
 
@@ -12,8 +12,8 @@ public class Pong extends Etyllica{
 	}
 
 	@Override
-	public void startGame() {
-		setMainApplication(new MainMenu(w, h));
+	public Application startApplication() {
+		return new MainMenu(w, h);
 	}
 	
 }

@@ -5,20 +5,20 @@ import java.awt.Color;
 import br.com.etyllica.core.video.Graphic;
 import br.com.etyllica.layer.Layer;
 
-public class Paddle extends Layer{
+public class Paddle extends Layer {
 
 	private int id;
 	
 	private int score = 0;
 
-	public Paddle(int id, float x, float y){
+	public Paddle(int id, int x, int y) {
 		super(x,y,15,80);
 		
 		this.id = id;
 	}
 
 	@Override
-	public void draw(Graphic g){
+	public void draw(Graphic g) {
 
 		g.setColor(Color.BLACK);
 
@@ -26,11 +26,11 @@ public class Paddle extends Layer{
 
 	}
 
-	public boolean collideBall(Ball ball){
+	public boolean collideBall(Ball ball) {
 
-		if(ball.getHittedBy()!=id){
+		if(ball.getHittedBy()!=id) {
 
-			if(this.colideRect(ball.getX(), ball.getY(), ball.getW(), ball.getH())){
+			if(this.colideRect(ball.getX(), ball.getY(), ball.getW(), ball.getH())) {
 
 				ball.setHittedBy(id);
 

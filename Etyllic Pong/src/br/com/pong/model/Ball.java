@@ -5,7 +5,7 @@ import java.awt.Color;
 import br.com.etyllica.core.video.Graphic;
 import br.com.etyllica.layer.Layer;
 
-public class Ball extends Layer{
+public class Ball extends Layer {
 	
 	private double speed = 2.5;
 	private double incX = 1;
@@ -15,7 +15,7 @@ public class Ball extends Layer{
 	
 	public Color color = Color.BLACK;
 	
-	public Ball(float x, float y){
+	public Ball(int x, int y) {
 		super(x,y,20,20);
 				
 		incX = speed*Math.sin(Math.PI * moveAngle / 180);
@@ -23,7 +23,7 @@ public class Ball extends Layer{
 	}
 	
 	@Override
-	public void draw(Graphic g){
+	public void draw(Graphic g) {
 		
 		g.setColor(color);
 		
@@ -31,7 +31,7 @@ public class Ball extends Layer{
 		
 	}
 	
-	public void move(){
+	public void move() {
 		this.x+=speed*incX;
 		this.y+=speed*incY;
 	}
@@ -68,9 +68,9 @@ public class Ball extends Layer{
 		incX = speed*Math.sin(moveAngle);
 		incY = speed*Math.cos(moveAngle);
 		
-		if(incX<1){
+		if(incX<1) {
 			incX = 1;
-		}else if(incX<-1){
+		}else if(incX<-1) {
 			incX = -1;
 		}
 		

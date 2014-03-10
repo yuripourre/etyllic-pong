@@ -1,6 +1,7 @@
 package br.com.pong.menu;
 
-import br.com.etyllica.core.application.Application;
+
+import br.com.etyllica.context.Application;
 import br.com.etyllica.core.event.Action;
 import br.com.etyllica.core.event.GUIEvent;
 import br.com.etyllica.core.event.KeyEvent;
@@ -10,7 +11,7 @@ import br.com.etyllica.gui.Button;
 import br.com.etyllica.gui.label.TextLabel;
 import br.com.pong.PongApplication;
 
-public class MainMenu extends Application{
+public class MainMenu extends Application {
 
 	private Button play;
 
@@ -21,8 +22,8 @@ public class MainMenu extends Application{
 	@Override
 	public void load() {
 				
-		float bw = 250;
-		float bh = 50;
+		int bw = 250;
+		int bh = 50;
 		
 		play = new Button(w/2-bw/2,190,bw,bh);
 		
