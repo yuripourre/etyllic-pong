@@ -2,7 +2,7 @@ package br.com.pong.model;
 
 import java.awt.Color;
 
-import br.com.etyllica.core.video.Graphic;
+import br.com.etyllica.core.graphics.Graphic;
 import br.com.etyllica.layer.Layer;
 
 public class Paddle extends Layer {
@@ -12,7 +12,7 @@ public class Paddle extends Layer {
 	private int score = 0;
 
 	public Paddle(int id, int x, int y) {
-		super(x,y,15,80);
+		super(x, y, 15, 80);
 		
 		this.id = id;
 	}

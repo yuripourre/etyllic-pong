@@ -2,7 +2,7 @@ package br.com.pong.model;
 
 import java.awt.Color;
 
-import br.com.etyllica.core.video.Graphic;
+import br.com.etyllica.core.graphics.Graphic;
 import br.com.etyllica.layer.Layer;
 
 public class Ball extends Layer {
@@ -16,7 +16,7 @@ public class Ball extends Layer {
 	public Color color = Color.BLACK;
 	
 	public Ball(int x, int y) {
-		super(x,y,20,20);
+		super(x, y, 20, 20);
 				
 		incX = speed*Math.sin(Math.PI * moveAngle / 180);
 		incY = -speed*Math.cos(Math.PI * moveAngle / 180);
